@@ -7,11 +7,14 @@ public abstract class AbstractJob implements Job {
     private String id;
     private Double progress;
 
-    public AbstractJob(String id) {
+    public AbstractJob() {
+
+    }
+
+    public void setId(String id) {
         this.id = id;
     }
 
-    /*
     private long startTime;
     private long endTime;
     public void setStartTime(long startTime) {
@@ -21,7 +24,7 @@ public abstract class AbstractJob implements Job {
     public void setEndTime(long endTime) {
         this.endTime = endTime;
     }
-    */
+
 
     public void setProgress(final double progress) {
         this.progress = progress;
