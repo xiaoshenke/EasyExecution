@@ -1,5 +1,7 @@
 package wuxian.me.easyexecution.core.executor;
 
+import wuxian.me.easyexecution.core.event.Event;
+import wuxian.me.easyexecution.core.event.EventHandler;
 import wuxian.me.easyexecution.core.executor.id.JobIdFactory;
 import wuxian.me.easyexecution.core.util.ThreadPoolExecutingListener;
 import wuxian.me.easyexecution.core.util.TrackingThreadPool;
@@ -10,7 +12,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-public class JobRunnerManager implements ThreadPoolExecutingListener {
+public class JobRunnerManager implements ThreadPoolExecutingListener, EventHandler {
 
     private static final int DEFAULT_FLOW_NUM_JOB_TREADS = 10;
 
@@ -18,8 +20,8 @@ public class JobRunnerManager implements ThreadPoolExecutingListener {
     private TrackingThreadPool executorService;
 
     private TrackingThreadPool createExecutorService(final int nThreads) {
-        executorService =  new TrackingThreadPool(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS,
-                        new LinkedBlockingQueue<>(nThreads), this);
+        executorService = new TrackingThreadPool(nThreads, nThreads, 0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(nThreads), this);
 
         return executorService;
     }
@@ -41,7 +43,7 @@ public class JobRunnerManager implements ThreadPoolExecutingListener {
         if (execId != null && execId.length() != 0) {
             if (runningJobs.containsKey(execId)) {
                 runningJobs.get(execId).canel();
-                runningJobs.remove(execId);  //Todo:job成功或失败的事件监听
+                runningJobs.remove(execId);
             }
         }
     }
@@ -57,7 +59,10 @@ public class JobRunnerManager implements ThreadPoolExecutingListener {
     }
 
     private JobRunner createJobRunner(AbstractJob job) {
-        return new JobRunner(job);
+
+        JobRunner runner = new JobRunner(job);
+        runner.addEventHandlers(this);
+        return runner;
     }
 
     @Override
@@ -66,5 +71,10 @@ public class JobRunnerManager implements ThreadPoolExecutingListener {
 
     @Override
     public void afterExecute(Runnable r) {
+    }
+
+    @Override
+    public void handleEvent(Event event) {
+        //Todo
     }
 }

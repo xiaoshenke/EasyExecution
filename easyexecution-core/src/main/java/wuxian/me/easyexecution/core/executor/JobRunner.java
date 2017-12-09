@@ -1,8 +1,9 @@
 package wuxian.me.easyexecution.core.executor;
 
+import wuxian.me.easyexecution.core.event.EventCreators;
 import wuxian.me.easyexecution.core.executor.id.JobIdFactory;
 
-public class JobRunner implements Runnable {
+public class JobRunner extends EventCreators implements Runnable {
 
     public JobRunner(AbstractJob job) {
         this.job = job;
