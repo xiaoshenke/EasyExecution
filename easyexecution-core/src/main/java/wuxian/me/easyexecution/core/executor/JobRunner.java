@@ -8,20 +8,52 @@ public class JobRunner implements Runnable {
         this.job = job;
     }
 
+    public void setExecId(long execId) {
+        if (this.job != null) {
+            this.job.setExecId(String.valueOf(execId));
+        }
+    }
+
+    private boolean isCanceled = false;
+
+    public boolean isCanceled() {
+        return isCanceled;
+    }
+
+    public void canel() {
+        this.isCanceled = true;
+
+        if (job != null) {
+            try {
+                job.cancel();
+            } catch (Exception e) {
+            }
+        }
+    }
+
     @Override
     public void run() {
         try {
             realRun();
+
         } catch (Exception e) {
             ;
         }
 
         //Todo: logging
+        if (isCanceled) {
+
+        }
+
     }
+
     private AbstractJob job;
 
+    public String getExecId() {
+        return job == null ? "-1" : job.getExecId();
+    }
+
     private void realRun() throws Exception {
-        job.setId(String.valueOf(JobIdFactory.getInstance().getGenerator()));
         job.setStartTime(System.currentTimeMillis());
         this.job.run();
         job.setEndTime(System.currentTimeMillis());

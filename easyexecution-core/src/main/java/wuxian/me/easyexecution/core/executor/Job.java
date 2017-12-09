@@ -4,7 +4,7 @@ import java.util.Properties;
 
 public interface Job {
 
-    String getId();
+    String getExecId();
 
     void run() throws Exception;
 

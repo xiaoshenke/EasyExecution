@@ -4,19 +4,40 @@ import java.util.Properties;
 
 public abstract class AbstractJob implements Job {
 
-    private String id;
+    private String execId;
     private Double progress;
+
+    private String expression;
+
+    private String type;
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setExpression(String expression) {
+        this.expression = expression;
+    }
+
+    public String getExpression() {
+        return expression;
+    }
 
     public AbstractJob() {
 
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setExecId(String execId) {
+        this.execId = execId;
     }
 
     private long startTime;
     private long endTime;
+
     public void setStartTime(long startTime) {
         this.startTime = startTime;
     }
@@ -30,9 +51,8 @@ public abstract class AbstractJob implements Job {
         this.progress = progress;
     }
 
-    @Override
-    public String getId() {
-        return id;
+    public String getExecId() {
+        return execId;
     }
 
     @Override
@@ -40,7 +60,7 @@ public abstract class AbstractJob implements Job {
 
     @Override
     public void cancel() throws Exception {
-        throw new RuntimeException("Job " + this.id + " does not support cancellation!");
+        throw new RuntimeException("Job " + this.execId + " does not support cancellation!");
     }
 
     @Override
