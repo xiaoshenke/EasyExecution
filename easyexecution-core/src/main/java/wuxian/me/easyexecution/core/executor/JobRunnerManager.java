@@ -51,7 +51,7 @@ public class JobRunnerManager implements ThreadPoolExecutingListener, EventHandl
             properties = new Properties();
         }
 
-        if (!properties.containsKey(AbstractJob.JOB_EXECUTE_TYPE)) {  //Todo:
+        if (!properties.containsKey(AbstractJob.JOB_EXECUTE_TYPE)) {  //Todo: 默认使用ConcurrencyDispatcher取得最快效果
             concurrencyDispatcher.submit(jobRunner);
         } else {
             fixedFrequencyDispatcher.submit(jobRunner);
