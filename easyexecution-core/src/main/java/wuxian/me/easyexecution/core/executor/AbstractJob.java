@@ -4,6 +4,8 @@ import java.util.Properties;
 
 public abstract class AbstractJob implements Job {
 
+    public static final String JOB_EXECUTE_TYPE = "executeType";
+
     private String execId;
     private Double progress;
 
