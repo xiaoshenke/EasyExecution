@@ -3,6 +3,7 @@
 .idea/*
 out
 target
+.idea/libraries/*
 .idea/libraries
 .idea/artifacts
 .idea/vcs.xml
