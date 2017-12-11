@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.util;
+package wuxian.me.easyexecution.biz.crawler.util;
 
 
 import com.google.common.base.Charsets;
@@ -9,7 +9,6 @@ import com.sun.istack.internal.Nullable;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.jar.JarFile;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

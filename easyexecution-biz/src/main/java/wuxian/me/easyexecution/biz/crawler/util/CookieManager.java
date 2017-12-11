@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.util;
+package wuxian.me.easyexecution.biz.crawler.util;
 
 import com.sun.istack.internal.Nullable;
 

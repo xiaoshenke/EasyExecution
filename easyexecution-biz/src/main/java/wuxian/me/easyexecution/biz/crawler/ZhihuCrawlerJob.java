@@ -1,9 +1,9 @@
-package wuxian.me.easyexecution.biz;
+package wuxian.me.easyexecution.biz.crawler;
 
 import org.apache.commons.io.IOUtils;
-import wuxian.me.easyexecution.biz.util.CookieManager;
-import wuxian.me.easyexecution.biz.util.FileUtil;
-import wuxian.me.easyexecution.biz.util.UserAgentManager;
+import wuxian.me.easyexecution.biz.crawler.annotation.Host;
+import wuxian.me.easyexecution.biz.crawler.annotation.URLPattern;
+import wuxian.me.easyexecution.biz.crawler.util.*;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
 
 import java.net.HttpURLConnection;
@@ -16,7 +16,11 @@ import java.net.URL;
  * 2.1 could be anti-crawlered
  * 2.2 if success ,save to  ??
  */
+@URLPattern(regex = "https://www.zhihu.com/question/[0-9]+/answer/[0-9]+")
 public class ZhihuCrawlerJob extends AbstractJob {
+
+    @Host
+    private final String host = "www.zhihu.com";
 
     private boolean isCanceled = false;
 

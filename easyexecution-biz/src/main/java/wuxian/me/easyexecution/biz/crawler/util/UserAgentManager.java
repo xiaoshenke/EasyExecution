@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.util;
+package wuxian.me.easyexecution.biz.crawler.util;
 
 import java.util.ArrayList;
 import java.util.List;
