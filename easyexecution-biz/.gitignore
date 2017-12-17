@@ -13,3 +13,4 @@ lib
 logs
 conf/log4j*
 conf/log4j.properties
+src/main/resources/*.txt
