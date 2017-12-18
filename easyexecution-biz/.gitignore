@@ -2,10 +2,15 @@
 .idea
 out
 target
+cookie
+cookie/*
 .idea/libraries
 .idea/artifacts
 .idea/vcs.xml
+.idea/workspace.xml
+.idea/*.xml
 lib
 logs
 conf/log4j*
 conf/log4j.properties
+src/main/resources/*.txt
