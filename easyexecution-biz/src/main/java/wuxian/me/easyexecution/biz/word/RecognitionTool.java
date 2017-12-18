@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 public class RecognitionTool {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(RecognitionTool.class);
-    private static final boolean RECOGNITION_TOOL_ENABLED = true;// WordConfTools.getBoolean("recognition.tool.enabled", true);
     //'〇'不常用，放到最后
     private static final char[] chineseNumbers = {'一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '百', '千', '万', '亿', '零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '佰', '仟', '〇'};
 
@@ -31,9 +30,7 @@ public class RecognitionTool {
      * @return 是否识别
      */
     public static boolean recog(final String text, final int start, final int len) {
-        if (!RECOGNITION_TOOL_ENABLED) {
-            return false;
-        }
+
         return isEnglishAndNumberMix(text, start, len)
                 || isFraction(text, start, len)
                 || isQuantifier(text, start, len)
