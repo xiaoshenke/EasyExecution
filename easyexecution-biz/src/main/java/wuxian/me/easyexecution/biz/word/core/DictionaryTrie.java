@@ -7,28 +7,40 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import wuxian.me.easyexecution.biz.word.util.WordsLoader;
 
-/**
- * 词首字索引式前缀树
- * 前缀树的Java实现
- * 为前缀树的一级节点（词首字）建立索引（比二分查找要快）
- * 用于查找一个指定的字符串是否在词典中
- *
- * @author 杨尚川
- */
+//thread safe implementation
 public class DictionaryTrie implements Dictionary {
     private static final Logger LOGGER = LoggerFactory.getLogger(DictionaryTrie.class);
     //词表的首字母数量在一个可控范围内，默认值为24000
-    private static final int INDEX_LENGTH = 24000;//WordConfTools.getInt("dictionary.trie.index.size", 24000);;
+    private static final int INDEX_LENGTH = 24000;
     private final TrieNode[] ROOT_NODES_INDEX = new TrieNode[INDEX_LENGTH];
     private int maxLength;
 
-    public DictionaryTrie() {
+    private static DictionaryTrie dictionaryTrie = null;
+
+    public static DictionaryTrie getIns() {
+        if (dictionaryTrie == null) {
+            synchronized (dictionaryTrie) {
+                if (dictionaryTrie == null) {
+                    dictionaryTrie = new DictionaryTrie();
+                }
+            }
+        }
+
+        return dictionaryTrie;
+    }
+
+    public void initWithDefaultWords() {
+        addAll(WordsLoader.loadWords());
+    }
+
+    private DictionaryTrie() {
         LOGGER.info("初始化词典：" + this.getClass().getName());
     }
 
     @Override
-    public void clear() {
+    public synchronized void clear() {
         for (int i = 0; i < INDEX_LENGTH; i++) {
             ROOT_NODES_INDEX[i] = null;
         }
@@ -37,7 +49,7 @@ public class DictionaryTrie implements Dictionary {
     /**
      * 统计根节点冲突情况及预分配的数组空间利用情况
      */
-    public void showConflict() {
+    public synchronized void showConflict() {
         int emptySlot = 0;
         //key:冲突长度 value:冲突个数
         Map<Integer, Integer> map = new HashMap<>();
@@ -81,7 +93,7 @@ public class DictionaryTrie implements Dictionary {
      * @param character 字符
      * @return 字符对应的根节点
      */
-    private TrieNode getRootNodeIfNotExistThenCreate(char character) {
+    private synchronized TrieNode getRootNodeIfNotExistThenCreate(char character) {
         TrieNode trieNode = getRootNode(character);
         if (trieNode == null) {
             trieNode = new TrieNode(character);
@@ -95,7 +107,7 @@ public class DictionaryTrie implements Dictionary {
      *
      * @param rootNode 根节点
      */
-    private void addRootNode(TrieNode rootNode) {
+    private synchronized void addRootNode(TrieNode rootNode) {
         //计算节点的存储索引
         int index = rootNode.getCharacter() % INDEX_LENGTH;
         //检查索引是否和其他节点冲突
@@ -115,7 +127,7 @@ public class DictionaryTrie implements Dictionary {
      * @param character 字符
      * @return 字符对应的根节点
      */
-    private TrieNode getRootNode(char character) {
+    private synchronized TrieNode getRootNode(char character) {
         //计算节点的存储索引
         int index = character % INDEX_LENGTH;
         TrieNode trieNode = ROOT_NODES_INDEX[index];
@@ -126,7 +138,7 @@ public class DictionaryTrie implements Dictionary {
         return trieNode;
     }
 
-    public List<String> prefix(String prefix) {
+    public synchronized List<String> prefix(String prefix) {
         List<String> result = new ArrayList<>();
         //去掉首尾空白字符
         prefix = prefix.trim();
@@ -160,12 +172,12 @@ public class DictionaryTrie implements Dictionary {
     }
 
     @Override
-    public boolean contains(String item) {
+    public synchronized boolean contains(String item) {
         return contains(item, 0, item.length());
     }
 
     @Override
-    public boolean contains(String item, int start, int length) {
+    public synchronized boolean contains(String item, int start, int length) {
         if (start < 0 || length < 1) {
             return false;
         }
@@ -204,14 +216,14 @@ public class DictionaryTrie implements Dictionary {
     }
 
     @Override
-    public void removeAll(List<String> items) {
+    public synchronized void removeAll(List<String> items) {
         for (String item : items) {
             remove(item);
         }
     }
 
     @Override
-    public void remove(String item) {
+    public synchronized void remove(String item) {
         if (item == null || item.isEmpty()) {
             return;
         }
@@ -258,14 +270,14 @@ public class DictionaryTrie implements Dictionary {
     }
 
     @Override
-    public void addAll(List<String> items) {
+    public synchronized void addAll(List<String> items) {
         for (String item : items) {
             add(item);
         }
     }
 
     @Override
-    public void add(String item) {
+    public synchronized void add(String item) {
         //去掉首尾空白字符
         item = item.trim();
         int len = item.length();
@@ -294,11 +306,11 @@ public class DictionaryTrie implements Dictionary {
         return maxLength;
     }
 
-    public void show(char character) {
+    public synchronized void show(char character) {
         show(getRootNode(character), "");
     }
 
-    public void show() {
+    public synchronized void show() {
         for (TrieNode node : ROOT_NODES_INDEX) {
             if (node != null) {
                 show(node, "");
@@ -306,7 +318,7 @@ public class DictionaryTrie implements Dictionary {
         }
     }
 
-    private void show(TrieNode node, String indent) {
+    private synchronized void show(TrieNode node, String indent) {
         if (node.isTerminal()) {
             LOGGER.info(indent + node.getCharacter() + "(T)");
         } else {
@@ -317,23 +329,4 @@ public class DictionaryTrie implements Dictionary {
         }
     }
 
-    public static void main(String[] args) {
-        DictionaryTrie trie = new DictionaryTrie();
-        trie.add("APDPlat");
-        trie.add("APP");
-        trie.add("APD");
-        trie.add("杨尚川");
-        trie.add("杨尚昆");
-        trie.add("杨尚喜");
-        trie.add("中华人民共和国");
-        trie.add("中华人民打太极");
-        trie.add("中华");
-        trie.add("中心思想");
-        trie.add("杨家将");
-        trie.show();
-        LOGGER.info(trie.prefix("中").toString());
-        LOGGER.info(trie.prefix("中华").toString());
-        LOGGER.info(trie.prefix("杨").toString());
-        LOGGER.info(trie.prefix("杨尚").toString());
-    }
 }

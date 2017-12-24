@@ -31,7 +31,7 @@ public class ZhihuCrawlerJob extends AbstractJob {
 
     public void run() throws Exception {
         if (isCanceled) {
-            ;
+            return;
         }
 
         HttpURLConnection conn = null;

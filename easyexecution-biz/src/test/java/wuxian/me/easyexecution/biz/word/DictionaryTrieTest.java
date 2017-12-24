@@ -21,7 +21,7 @@ public class DictionaryTrieTest {
 
     @Before
     public void setUp() {
-        trie = new DictionaryTrie();
+        trie = DictionaryTrie.getIns();
         trie.add("杨尚川");
         trie.add("杨尚昆");
         trie.add("杨尚喜");
@@ -122,7 +122,7 @@ public class DictionaryTrieTest {
             AtomicInteger h = new AtomicInteger();
             AtomicInteger e = new AtomicInteger();
             List<String> words = Files.readAllLines(Paths.get("src/main/resources/dic.txt"));
-            Dictionary dictionary = new DictionaryTrie();
+            Dictionary dictionary = DictionaryTrie.getIns();
             dictionary.addAll(words);
             words.forEach(word -> {
                 for (int j = 0; j < word.length(); j++) {

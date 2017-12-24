@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4e633ec-0074-4ae0-b865-37a49ca04164" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/QuantifierUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/StopWordUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/BaseSegmentationTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/util/StopWordUtilTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/DictionaryTrie.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Dictionary.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/Dictionary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Punctuation.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/PunctuationUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/RecognitionTool.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/RecognitionUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/TrieNode.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/TrieNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/WordsLoader.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/WordsLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/SegmentJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/BaseSegmentation.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/BaseSegmentation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Segmentation.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Segmentation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/MaximumMatchingTest.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/MaximumMatchingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/WordsLoaderTest.java" afterPath="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/WordsLoaderTest.java" />
     </list>
     <ignored path="EasyExecution.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,102 +33,15 @@
     <favorites_list name="EasyExecution" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="StopWordUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/StopWordUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StopWordUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/util/StopWordUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DictionaryTrie.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4102">
-              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseSegmentation.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/BaseSegmentation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1050">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseSegmentationTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/BaseSegmentationTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MaximumMatching.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecognitionUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/RecognitionUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordsLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/WordsLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -178,13 +76,11 @@
         <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/ZhihuCrawlerJobTest.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/annotation/URLPattern.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/annotation/Host.java" />
-        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/.gitignore" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Dictionary.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Segmentation.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/TrieNode.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/pom.xml" />
-        <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/WordsLoaderTest.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/DictionaryTrie.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -193,7 +89,6 @@
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/StopWord.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/StopWordUtil.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/MaximumMatchingTest.java" />
-        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Quantifier.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/QuantifierUtil.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Punctuation.java" />
@@ -208,7 +103,13 @@
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/StopWordUtil.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/util/StopWordUtilTest.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/BaseSegmentationTest.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrieTest.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java" />
         <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/BaseSegmentation.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java" />
+        <option value="$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/SegmentJob.java" />
       </list>
     </option>
   </component>
@@ -231,9 +132,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="23" />
-    <option name="width" value="1425" />
+    <option name="x" value="132" />
+    <option name="y" value="39" />
+    <option name="width" value="901" />
     <option name="height" value="643" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -263,218 +164,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="word" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="word" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EasyExecution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyexecution-biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="biz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="word" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
@@ -495,6 +185,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="wuxian.me.easyexecution.biz.word.core" />
       <recent name="wuxian.me.easyexecution.biz.word" />
       <recent name="wuxian.me.easyexecution.biz.word.util" />
       <recent name="wuxian.me.easyexecution.biz" />
@@ -1318,7 +1009,7 @@
       <workItem from="1513514630012" duration="7232000" />
       <workItem from="1513947515586" duration="9000" />
       <workItem from="1513947599081" duration="238000" />
-      <workItem from="1514101062714" duration="3648000" />
+      <workItem from="1514101062714" duration="6486000" />
     </task>
     <servers />
   </component>
@@ -1355,11 +1046,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21425000" />
+    <option name="totallyTimeSpent" value="24263000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="23" width="1425" height="643" extended-state="0" />
-    <editor active="true" />
+    <frame x="132" y="39" width="901" height="643" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1371,10 +1062,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40761906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32761905" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18365872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18365872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295238" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494577" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41904762" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1537,13 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -1569,16 +1253,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="1133" column="28" selection-start-line="1133" selection-start-column="28" selection-end-line="1133" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1628,8 +1302,8 @@
         <state relative-caret-position="15">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1127#1128#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1644,26 +1318,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/Dictionary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/TrieNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Segmentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1708,47 +1366,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4102">
-          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/RecognitionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/StopWordUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/util/StopWordUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/RecognitionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4770">
+          <caret line="330" column="13" selection-start-line="330" selection-start-column="13" selection-end-line="330" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1762,10 +1394,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/util/StopWordUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/Segmentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrieTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/test/java/wuxian/me/easyexecution/biz/word/DictionaryTrieTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="124" column="60" selection-start-line="124" selection-start-column="60" selection-end-line="124" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/DictionaryTrie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/crawler/ZhihuCrawlerJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/BaseSegmentation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/MaximumMatching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="54" column="98" selection-start-line="54" selection-start-column="98" selection-end-line="54" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/SegmentJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyexecution-biz/src/main/java/wuxian/me/easyexecution/biz/word/core/Dictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding />
         </state>
       </provider>

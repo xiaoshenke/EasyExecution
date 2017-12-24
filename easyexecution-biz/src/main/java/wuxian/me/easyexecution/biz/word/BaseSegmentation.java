@@ -20,8 +20,7 @@ public abstract class BaseSegmentation implements Segmentation {
     private boolean keepPunctutaion = false;
     private int maxLength = 6;
 
-    private wuxian.me.easyexecution.biz.word.core.Dictionary dictionary = null;                   //DictionaryFactory.getDictionary();
-
+    private wuxian.me.easyexecution.biz.word.core.Dictionary dictionary = null;
     private boolean hasStopword = true;
 
     public BaseSegmentation(boolean hasStopword) {
@@ -44,7 +43,7 @@ public abstract class BaseSegmentation implements Segmentation {
     }
 
     @Nullable
-    public abstract List<String> segImpl(String text);
+    protected abstract List<String> segImpl(String text);
 
     //分词时截取的字符串的最大长度
     public int getInterceptLength() {
