@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.word;
+package wuxian.me.easyexecution.biz.word.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,9 +10,9 @@ import java.util.Set;
 import org.slf4j.LoggerFactory;
 
 //判断一个字符是否是标点符号
-public class Punctuation {
+public class PunctuationUtil {
 
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Punctuation.class);
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(PunctuationUtil.class);
     private static char[] chars = null;
     private static boolean isLoaded = false;
 
@@ -99,7 +99,7 @@ public class Punctuation {
                     continue outer;
                 }
             }
-            if (Punctuation.is(c)) {
+            if (PunctuationUtil.is(c)) {
                 if (i > start) {
                     list.add(text.substring(start, i));
                     //下一句开始索引
@@ -138,7 +138,7 @@ public class Punctuation {
         LOGGER.info("\t : " + is('\t'));
         LOGGER.info("\n : " + is('\n'));
         String text = "APDPlat的雏形可以追溯到2008年，并于4年后即2012年4月9日在GITHUB开源 。APDPlat在演化的过程中，经受住了众多项目的考验，一直追求简洁优雅，一直对架构、设计和代码进行重构优化。 ";
-        for (String s : Punctuation.seg(text, true)) {
+        for (String s : PunctuationUtil.seg(text, true)) {
             LOGGER.info(s);
         }
     }

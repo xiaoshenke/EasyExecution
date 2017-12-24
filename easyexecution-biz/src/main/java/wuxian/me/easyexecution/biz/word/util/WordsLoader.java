@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.word;
+package wuxian.me.easyexecution.biz.word.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +28,10 @@ public class WordsLoader {
         return loadByPaths("classpath:punctuation.txt");
     }
 
+    public static List<String> loadStopWord() {
+        return loadByPaths("classpath:stopword.txt");
+    }
+
     //resourcePaths 多个资源路径，用逗号分隔
     public static List<String> loadByPaths(String resourcePaths) {
         resourcePaths = resourcePaths.trim();
@@ -51,7 +55,6 @@ public class WordsLoader {
         }
         LOGGER.info("加载资源 " + result.size() + " 行");
         //调用自定义加载逻辑
-        //resourceLoader.load(result);
         long cost = System.currentTimeMillis() - start;
         LOGGER.info("完成加载资源，耗时" + cost + " 毫秒");
         return result;

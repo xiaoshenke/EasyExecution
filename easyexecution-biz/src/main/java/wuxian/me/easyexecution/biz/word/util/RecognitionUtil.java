@@ -1,15 +1,19 @@
-package wuxian.me.easyexecution.biz.word;
+package wuxian.me.easyexecution.biz.word.util;
 
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by wuxian on 16/12/2017.
  */
-public class RecognitionTool {
+public class RecognitionUtil {
 
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(RecognitionTool.class);
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(RecognitionUtil.class);
     //'〇'不常用，放到最后
     private static final char[] chineseNumbers = {'一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '百', '千', '万', '亿', '零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '佰', '仟', '〇'};
+
+    static {
+        QuantifierUtil.init();
+    }
 
     /**
      * 识别文本（英文单词、数字、时间等）
@@ -202,9 +206,9 @@ public class RecognitionTool {
      * @param len   识别长度
      * @return 是否识别
      */
-    //Todo
+
     public static boolean isQuantifier(final String text, final int start, final int len) {
-        /*
+
         if(len < 2){
             return false;
         }
@@ -216,7 +220,7 @@ public class RecognitionTool {
             return false;
         }
         char lastChar = text.charAt(start+len-1);
-        if(Quantifier.is(lastChar)
+        if (QuantifierUtil.is(lastChar)
                 &&
                 (isNumber(text, start, len-1) ||
                         isChineseNumber(text, start, len-1) ||
@@ -226,7 +230,7 @@ public class RecognitionTool {
             }
             return true;
         }
-        */
+
         return false;
     }
 

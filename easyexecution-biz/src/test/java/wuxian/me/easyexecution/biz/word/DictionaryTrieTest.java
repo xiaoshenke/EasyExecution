@@ -3,6 +3,8 @@ package wuxian.me.easyexecution.biz.word;
 
 import org.junit.Before;
 import org.junit.Test;
+import wuxian.me.easyexecution.biz.word.core.Dictionary;
+import wuxian.me.easyexecution.biz.word.core.DictionaryTrie;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

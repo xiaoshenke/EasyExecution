@@ -14,7 +14,7 @@ public class MaximumMatchingTest {
 
     @Test
     public void testSeg() {
-        Segmentation segmentation = new MaximumMatching();
+        Segmentation segmentation = new MaximumMatching(true);
         List<String> text = new ArrayList<>();
         text.add("长春市长春节致辞");
         text.add("杨");

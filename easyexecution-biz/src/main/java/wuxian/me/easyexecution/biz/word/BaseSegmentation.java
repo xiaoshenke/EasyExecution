@@ -3,6 +3,8 @@ package wuxian.me.easyexecution.biz.word;
 import com.sun.istack.internal.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import wuxian.me.easyexecution.biz.word.util.PunctuationUtil;
+import wuxian.me.easyexecution.biz.word.util.StopWordUtil;
 
 import java.util.*;
 
@@ -13,26 +15,31 @@ public abstract class BaseSegmentation implements Segmentation {
 
     protected final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
-    private boolean keepWhitespace = false;                 //WordConfTools.getBoolean("keep.whitespace", false);
-    private boolean caseSensetive = false;                  //WordConfTools.getBoolean("keep.case", false);
-    private boolean keepPunctutaion = false;                //WordConfTools.getBoolean("keep.punctuation", false);
-    private int maxLength = 6;                             //WordConfTools.getInt("intercept.length", 16);
+    private boolean keepWhitespace = false;
+    private boolean caseSensetive = false;
+    private boolean keepPunctutaion = false;
+    private int maxLength = 6;
 
-    private Dictionary dictionary = null;                   //DictionaryFactory.getDictionary();
+    private wuxian.me.easyexecution.biz.word.core.Dictionary dictionary = null;                   //DictionaryFactory.getDictionary();
 
-    public BaseSegmentation() {
+    private boolean hasStopword = true;
+
+    public BaseSegmentation(boolean hasStopword) {
+        this.hasStopword = hasStopword;
+
+        StopWordUtil.initWithDefaultWords();
     }
 
-    public void setDictionary(Dictionary dictionary) {
-        this.dictionary.clear();
+    public void setDictionary(wuxian.me.easyexecution.biz.word.core.Dictionary dictionary) {
         this.dictionary = dictionary;
     }
 
     /**
      * 获取词典操作接口
+     *
      * @return 词典操作接口
      */
-    public Dictionary getDictionary() {
+    public wuxian.me.easyexecution.biz.word.core.Dictionary getDictionary() {
         return dictionary;
     }
 
@@ -49,7 +56,7 @@ public abstract class BaseSegmentation implements Segmentation {
 
     @Override
     public List<String> seg(String text) {
-        List<String> sentences = Punctuation.seg(text, keepPunctutaion); //1:先按标点进行句子分割。
+        List<String> sentences = PunctuationUtil.seg(text, keepPunctutaion); //1:先按标点进行句子分割。
         if (sentences.size() == 1) {
             return segSingleSentence(sentences.get(0));
         }
@@ -63,6 +70,10 @@ public abstract class BaseSegmentation implements Segmentation {
         }
         sentences.clear();
         sentences = null;
+
+        if (!hasStopword) {
+            StopWordUtil.filterStopWords(resultList);
+        }
         return resultList;
     }
 
@@ -100,6 +111,7 @@ public abstract class BaseSegmentation implements Segmentation {
         }
     }
 
+    @Nullable
     protected String getWord(String text, int start, int len) {
         if (len < 1) {
             return null;
@@ -140,18 +152,5 @@ public abstract class BaseSegmentation implements Segmentation {
         return null;
     }
 
-    public static void main(String[] args) {
-        Segmentation englishSegmentation = new BaseSegmentation() {
-            @Override
-            public List<String> segImpl(String text) {
-                List<String> words = new ArrayList<>();
-                for (String String : text.split("\\s+")) {
-                    words.add(new String(String));
-                }
-                return words;
-            }
-        };
-        System.out.println(englishSegmentation.seg("i love programming"));
-    }
 
 }

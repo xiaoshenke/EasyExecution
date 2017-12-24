@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/easyexecution.iml" filepath="$PROJECT_DIR$/easyexecution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EasyExecution.iml" filepath="$PROJECT_DIR$/EasyExecution.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyexecution-biz/easyexecution-biz.iml" filepath="$PROJECT_DIR$/easyexecution-biz/easyexecution-biz.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyexecution-core/easyexecution-core.iml" filepath="$PROJECT_DIR$/easyexecution-core/easyexecution-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyexecution-server/easyexecution-server.iml" filepath="$PROJECT_DIR$/easyexecution-server/easyexecution-server.iml" />

@@ -1,5 +1,7 @@
 package wuxian.me.easyexecution.biz.word;
 
+import wuxian.me.easyexecution.biz.word.core.Dictionary;
+
 import java.util.List;
 
 /**

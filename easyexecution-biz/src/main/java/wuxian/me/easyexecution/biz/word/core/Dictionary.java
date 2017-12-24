@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.word;
+package wuxian.me.easyexecution.biz.word.core;
 
 import java.util.List;
 
