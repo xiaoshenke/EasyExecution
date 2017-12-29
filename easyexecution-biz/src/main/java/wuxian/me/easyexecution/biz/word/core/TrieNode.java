@@ -63,6 +63,7 @@ public class TrieNode implements Comparable {
         if (child == null) {
             child = new TrieNode(character);
             addChild(child);
+            child.setTerminal(true);  //fix a bug 如果不加这行代码 那么contains函数会有bug
         }
         return child;
     }

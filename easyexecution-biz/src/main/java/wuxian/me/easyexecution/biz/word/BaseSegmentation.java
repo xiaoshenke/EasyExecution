@@ -33,6 +33,10 @@ public abstract class BaseSegmentation implements Segmentation {
         this.dictionary = dictionary;
     }
 
+    public void setMaxLength(int maxLength) {
+        this.maxLength = maxLength;
+    }
+
     /**
      * 获取词典操作接口
      *
@@ -47,9 +51,12 @@ public abstract class BaseSegmentation implements Segmentation {
 
     //分词时截取的字符串的最大长度
     public int getInterceptLength() {
-        if (getDictionary().getMaxLength() > maxLength) {
+
+        /*
+        if (getDictionary().getMaxLength() > maxLength) {  //这样会严重影响效率
             return getDictionary().getMaxLength();
         }
+        */
         return maxLength;
     }
 

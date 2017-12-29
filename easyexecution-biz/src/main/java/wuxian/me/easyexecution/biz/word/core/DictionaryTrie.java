@@ -21,7 +21,7 @@ public class DictionaryTrie implements Dictionary {
 
     public static DictionaryTrie getIns() {
         if (dictionaryTrie == null) {
-            synchronized (dictionaryTrie) {
+            synchronized (DictionaryTrie.class) {
                 if (dictionaryTrie == null) {
                     dictionaryTrie = new DictionaryTrie();
                 }

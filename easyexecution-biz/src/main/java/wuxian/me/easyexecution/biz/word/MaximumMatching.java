@@ -20,19 +20,21 @@ public class MaximumMatching extends BaseSegmentation {
     public MaximumMatching(boolean b) {
         super(b);
 
-        Dictionary dictionary = DictionaryTrie.getIns();
-        ((DictionaryTrie) dictionary).initWithDefaultWords();
-        setDictionary(dictionary);
+        //TODO:
+        //Dictionary dictionary = DictionaryTrie.getIns();
+        //((DictionaryTrie) dictionary).initWithDefaultWords();
+        //setDictionary(dictionary);
     }
 
     @Override
     //影响以下算法的效率的
     //1 @getinterceptLength
-    //2 @RecognitionUtil.recog --> 实现的太挫了,给它改改
     protected List<String> segImpl(String text) {
+
         List<String> result = new ArrayList<>();
         final int textLen = text.length();
         int len = getInterceptLength();
+        System.out.println("len:" + len);
         int start = 0;
         while (start < textLen) {
             if (len > textLen - start) {
@@ -54,6 +56,7 @@ public class MaximumMatching extends BaseSegmentation {
 
     //若originLen=interceptLen,那么往len变大的方向尝试 看看能不能继续以更大的len进行分词 解决了单词长度最大为@getInterceptLength()的bug
     private int getLen(String text, int start, int originLen, int interceptLen) {
+
         if (originLen < interceptLen) {
             return originLen;
         }

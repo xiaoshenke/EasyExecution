@@ -13,16 +13,8 @@ import static org.junit.Assert.*;
 public class StopWordUtilTest {
 
     @Test
-    public void testChineaseWordLength() {
-        String s = "你好我是中国人";
-        System.out.println(s.length());
-
-    }
-
-    @Test
     public void testStopwords() {
         List<String> stopList = new ArrayList<>();
-
         stopList.add("我们");
         stopList.add("是");
 
@@ -32,7 +24,6 @@ public class StopWordUtilTest {
         originList.add("圣诞节");
 
         StopWordUtil.setStopwords(stopList);
-
         StopWordUtil.filterStopWords(originList);
         System.out.println(originList.toString());
     }
