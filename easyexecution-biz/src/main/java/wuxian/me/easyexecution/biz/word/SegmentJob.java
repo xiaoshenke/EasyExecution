@@ -1,6 +1,7 @@
 package wuxian.me.easyexecution.biz.word;
 
 
+import wuxian.me.easyexecution.biz.word.MaxLengthMatching;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public class SegmentJob extends AbstractJob {
 
     private String words;
 
+    List<String> result;
+
     public SegmentJob(boolean hasStopword, String words) {
         this.hasStopWord = hasStopword;
         this.words = words;
@@ -26,10 +29,12 @@ public class SegmentJob extends AbstractJob {
     @Override
     public void run() throws Exception {
 
-        MaximumMatching seg = new MaximumMatching(hasStopWord);
-        List<String> result = seg.seg(words);
+        MaxLengthMatching seg = new MaxLengthMatching(hasStopWord);
+        result = seg.seg(words);
 
-        //Todo: callback?
+    }
 
+    public Object getResult() {
+        return result;
     }
 }

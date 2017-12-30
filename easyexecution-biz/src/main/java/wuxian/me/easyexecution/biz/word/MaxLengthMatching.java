@@ -1,9 +1,6 @@
 package wuxian.me.easyexecution.biz.word;
 
-import wuxian.me.easyexecution.biz.word.core.Dictionary;
-import wuxian.me.easyexecution.biz.word.core.DictionaryTrie;
 import wuxian.me.easyexecution.biz.word.util.RecognitionUtil;
-import wuxian.me.easyexecution.biz.word.util.WordsLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +8,14 @@ import java.util.List;
 /**
  * Created by wuxian on 16/12/2017.
  */
-public class MaximumMatching extends BaseSegmentation {
+public class MaxLengthMatching extends BaseSegmentation {
 
-    public MaximumMatching() {
+    public MaxLengthMatching() {
         this(true);
     }
 
-    public MaximumMatching(boolean b) {
+    public MaxLengthMatching(boolean b) {
         super(b);
-
-        //TODO:
-        //Dictionary dictionary = DictionaryTrie.getIns();
-        //((DictionaryTrie) dictionary).initWithDefaultWords();
-        //setDictionary(dictionary);
     }
 
     @Override
@@ -34,7 +26,6 @@ public class MaximumMatching extends BaseSegmentation {
         List<String> result = new ArrayList<>();
         final int textLen = text.length();
         int len = getInterceptLength();
-        System.out.println("len:" + len);
         int start = 0;
         while (start < textLen) {
             if (len > textLen - start) {
@@ -56,7 +47,6 @@ public class MaximumMatching extends BaseSegmentation {
 
     //若originLen=interceptLen,那么往len变大的方向尝试 看看能不能继续以更大的len进行分词 解决了单词长度最大为@getInterceptLength()的bug
     private int getLen(String text, int start, int originLen, int interceptLen) {
-
         if (originLen < interceptLen) {
             return originLen;
         }

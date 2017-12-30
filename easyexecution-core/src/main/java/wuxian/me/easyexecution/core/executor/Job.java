@@ -16,4 +16,7 @@ public interface Job {
 
     boolean isCanceled();
 
+    //if success
+    Object getResult();
+
 }
