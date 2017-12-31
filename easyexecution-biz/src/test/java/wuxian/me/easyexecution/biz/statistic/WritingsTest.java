@@ -3,10 +3,10 @@ package wuxian.me.easyexecution.biz.statistic;
 import org.junit.Before;
 import org.junit.Test;
 import wuxian.me.easyexecution.biz.crawler.util.FileUtil;
-import wuxian.me.easyexecution.biz.word.MaxLengthMatching;
-import wuxian.me.easyexecution.biz.word.Segmentation;
-import wuxian.me.easyexecution.biz.word.core.DictionaryTrie;
 import org.apache.commons.lang3.tuple.*;
+import wuxian.me.segmentation.MaxLengthMatching;
+import wuxian.me.segmentation.Segmentation;
+import wuxian.me.segmentation.core.DictionaryTrie;
 
 
 import java.util.*;

@@ -1,8 +1,7 @@
 package wuxian.me.easyexecution.biz.word;
 
-
-import wuxian.me.easyexecution.biz.word.MaxLengthMatching;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
+import wuxian.me.segmentation.MaxLengthMatching;
 
 import java.util.List;
 
