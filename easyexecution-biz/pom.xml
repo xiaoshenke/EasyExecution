@@ -53,6 +53,14 @@
             <systemPath>${project.basedir}/lib/Segmentation-1.0.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>wuxian.me</groupId>
+            <artifactId>ner</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/NER-Experiment-1.0.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>

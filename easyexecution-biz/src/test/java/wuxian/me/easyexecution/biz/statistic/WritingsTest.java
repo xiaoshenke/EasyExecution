@@ -4,6 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import wuxian.me.easyexecution.biz.crawler.util.FileUtil;
 import org.apache.commons.lang3.tuple.*;
+import wuxian.me.ner.statistic.MidStatistics;
+import wuxian.me.ner.statistic.Util;
+import wuxian.me.ner.statistic.Writings;
 import wuxian.me.segmentation.MaxLengthMatching;
 import wuxian.me.segmentation.Segmentation;
 import wuxian.me.segmentation.core.DictionaryTrie;
@@ -86,6 +89,8 @@ public class WritingsTest {
             list.add(new ImmutablePair(tmpEntry.getKey().getWord(), tmpEntry.getValue().size()));
         }
         System.out.println(list);
+
+
     }
 
 }
