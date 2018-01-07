@@ -83,16 +83,27 @@ public class ParsingUtil {
         return null;
     }
 
-    public static Node firstChildOfTypeAndContent(@Nullable NodeList list, Class clazz, String content) {
+    public static Node firstChildOfTypeAndContent(@Nullable NodeList list, Class clazz, String content, boolean recurse) {
         if (list != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
                 Node node = list.elementAt(i);
                 if (isSubClass(node.getClass(), clazz) && node.getText().trim().contains(content)) {
                     return node;
                 }
+                if (recurse && node.getChildren() != null && node.getChildren().size() != 0) {
+                    Node n = firstChildOfTypeAndContent(node.getChildren(), clazz, content, recurse);
+                    if (n != null) {
+                        return n;
+                    }
+                }
+
             }
         }
         return null;
+    }
+
+    public static Node firstChildOfTypeAndContent(@Nullable NodeList list, Class clazz, String content) {
+        return firstChildOfTypeAndContent(list, clazz, content, false);
     }
 
     @Nullable
