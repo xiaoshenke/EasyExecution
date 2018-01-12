@@ -1,6 +1,8 @@
 package wuxian.me.easyexecution.core.executor;
 
+import wuxian.me.easyexecution.core.event.Event;
 import wuxian.me.easyexecution.core.event.EventCreators;
+import wuxian.me.easyexecution.core.event.EventType;
 import wuxian.me.easyexecution.core.executor.id.JobIdFactory;
 
 public class JobRunner extends EventCreators implements Runnable {
@@ -43,7 +45,9 @@ public class JobRunner extends EventCreators implements Runnable {
 
         //Todo: logging
         if (isCanceled) {
-
+            fireEvent(Event.create(EventType.JOB_CANCELED, this.job));
+        } else {
+            fireEvent(Event.create(EventType.JOB_FINISHED, this.job));
         }
 
     }

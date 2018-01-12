@@ -8,6 +8,8 @@ import wuxian.me.easyexecution.core.executor.id.JobIdFactory;
 import wuxian.me.easyexecution.core.util.ThreadPoolExecutingListener;
 import wuxian.me.easyexecution.core.util.TrackingThreadPool;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
@@ -97,6 +99,18 @@ public class JobRunnerManager implements ThreadPoolExecutingListener, EventHandl
 
     @Override
     public void handleEvent(Event event) {
-        //Todo
+        for (EventHandler handler : handlerList) {
+            handler.handleEvent(event);
+        }
     }
+
+    private List<EventHandler> handlerList = new ArrayList<>();
+
+    public void addEventHandler(EventHandler handler) {
+        if (handler != null && !handlerList.contains(handler)) {
+            handlerList.add(handler);
+        }
+    }
+
+
 }

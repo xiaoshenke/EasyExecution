@@ -1,5 +1,6 @@
 package wuxian.me.easyexecution.biz.crawler.sougou;
 
+import okhttp3.HttpUrl;
 import org.apache.commons.io.IOUtils;
 import org.htmlparser.Node;
 import org.htmlparser.Parser;
@@ -10,10 +11,7 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import wuxian.me.easyexecution.biz.crawler.BaseCrawerJob;
 import wuxian.me.easyexecution.biz.crawler.annotation.URLPattern;
-import wuxian.me.easyexecution.biz.crawler.util.HtmlHelper;
-import wuxian.me.easyexecution.biz.crawler.util.NodeLogUtil;
-import wuxian.me.easyexecution.biz.crawler.util.ParsingUtil;
-import wuxian.me.easyexecution.biz.crawler.util.UserAgentManager;
+import wuxian.me.easyexecution.biz.crawler.util.*;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
 
 import java.io.UnsupportedEncodingException;
@@ -32,15 +30,31 @@ public class WechatJob extends BaseCrawerJob {
 
     private String wechatName;
 
+    private String wxid;
+    private int page;
+    private boolean isGetWxid = false;
+
     List<String> urls = new ArrayList<>();
 
-    public WechatJob(String wechatName) {
+    public WechatJob(String wechatName, String wxid, int page) {
         this.wechatName = wechatName;
+        this.wxid = wxid;
+        this.page = page;
     }
 
-    @Override
-    public void run() throws Exception {
+    public WechatJob(String wechatName, String wxid) {
+        this(wechatName, wxid, 1);
+    }
 
+    public WechatJob(String wechatName) {
+        this(wechatName, null);
+    }
+
+    public boolean isGetWxid() {
+        return isGetWxid;
+    }
+
+    private void getWxidRun() throws Exception {
         HttpURLConnection conn = null;
 
         String responseText = null;
@@ -91,23 +105,122 @@ public class WechatJob extends BaseCrawerJob {
         }
 
         parseRealData(responseText);
-
     }
 
-    private void parseItem(Node node) throws ParserException {
+    private void getNormalRun() throws Exception {
+
+        HttpUrl.Builder builder = HttpUrl.parse("http://weixin.sogou.com/weixin?type=2&ie=utf&tsn=0&ft=&et=&interation=")
+                .newBuilder();
+        builder.addQueryParameter("page", String.valueOf(page));
+        builder.addQueryParameter("usip", wechatName);
+        builder.addQueryParameter("query", wechatName);
+        builder.addQueryParameter("wxid", wxid);
+
+        String responseText = null;
+        String encoding = null;
+        byte[] responseBytes = null;
+        HttpURLConnection conn = null;
+
+        String url = builder.toString();
+        try {
+            conn = (HttpURLConnection) (new URL(url)).openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Host", "weixin.sogou.com");
+            conn.setRequestProperty("Connection", "keep-alive");
+            conn.setRequestProperty("User-Agent", UserAgentManager.getAgent());
+            conn.setRequestProperty("Referer", url); //sogou will carefully check Referer!
+
+            int status = conn.getResponseCode();
+            System.out.println("status code: " + status);
+
+            responseBytes = IOUtils.toByteArray(conn.getInputStream());
+            if (status != 200 || responseBytes == null) {
+                System.out.println("craw page:" + url + " fail,http code:" + status);
+                return;
+            }
+            encoding = resolveEncoding(responseBytes, conn);
+            if (encoding == null || encoding.isEmpty()) {
+                System.out.println("Cannot Detected Charset of : " + url);
+                return;
+            }
+
+
+        } catch (Exception e) {
+
+            System.out.println("exception: " + e.getMessage());
+
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
+        }
+
+        try {
+            responseText = new String(responseBytes, encoding);
+        } catch (UnsupportedEncodingException e) {
+            System.out.println("crawler page:" + url + " UnsupportedEncodingException:" + e.getMessage());
+            return;
+        }
+        System.out.println(responseText);
+        parseRealData(responseText);
+    }
+
+    @Override
+    public void run() throws Exception {
+        if (wxid == null) {
+            isGetWxid = true;
+        }
+
+        if (isGetWxid) {
+            getWxidRun();
+        } else {
+            getNormalRun();
+        }
+    }
+
+    private boolean parseWxidItem(Node node) throws ParserException {
+        Node id = ParsingUtil.firstChildOfTypeAndContent(node.getChildren(), Tag.class, "class=\"account", true);
+
+        String name = id.toPlainTextString().trim();
+        System.out.println("name: " + name);
+        if (!name.equals(this.wechatName)) {
+            return false;
+        }
+
+        String wxid = "i=\"";
+        int begin = id.getText().indexOf(wxid);
+        if (begin == -1) {
+            return false;
+        }
+
+        int end = id.getText().indexOf("\"", begin + wxid.length());
+        if (end == -1) {
+            return false;
+        }
+
+        this.wxid = id.getText().substring(begin + wxid.length(), end);
+        return true;
+    }
+
+    private boolean parseItem(Node node) throws ParserException {
+
+        if (isGetWxid) {
+            return parseWxidItem(node);
+        }
 
         Node id = ParsingUtil.firstChildOfTypeAndContent(node.getChildren(), Tag.class, "class=\"account", true);
 
         String name = id.toPlainTextString().trim();
         System.out.println("name: " + name);
         if (!name.equals(this.wechatName)) {
-            return;
+            return false;
         }
 
         Node title = ParsingUtil.firstChildOfTypeAndContent(node.getChildren(), Tag.class, "data-share", true);
         String link = HtmlHelper.removeHtmlContent(HtmlHelper.extractLink(title.getText()));
         urls.add(link);
         System.out.println("link: " + link);
+        return true;
 
     }
 
@@ -124,9 +237,19 @@ public class WechatJob extends BaseCrawerJob {
         for (int i = 0; i < list.size(); i++) {
 
             Node n = list.elementAt(i);
-            parseItem(n);
-        }
+            boolean b = parseItem(n);
 
-        System.out.println(urls.toString());
+            if (isGetWxid && b) {
+                break;
+            }
+        }
+    }
+
+    public Object getResult() {
+        if (isGetWxid) {
+            return wxid;
+        } else {
+            return urls;
+        }
     }
 }
