@@ -19,7 +19,7 @@ public class NetworkUtil {
     }
 
     public static NetResponse sendHttpRequest(String url, String method
-            , Map<String, String> properties) throws MalformedURLException, ProtocolException
+            , Map<String, String> properties, boolean useCache) throws MalformedURLException, ProtocolException
             , IOException, UnknownHostException {
         if (url == null || url.length() == 0) {
             throw new RuntimeException("url is empty!");
@@ -37,6 +37,7 @@ public class NetworkUtil {
         try {
             conn = (HttpURLConnection) (new URL(url)).openConnection();
             conn.setRequestMethod(method);
+            conn.setUseCaches(useCache);
 
             if (properties != null) {
                 Iterator<Map.Entry<String, String>> iterator = properties.entrySet().iterator();
@@ -74,6 +75,12 @@ public class NetworkUtil {
                 conn.disconnect();
             }
         }
+    }
+
+    public static NetResponse sendHttpRequest(String url, String method
+            , Map<String, String> properties) throws MalformedURLException, ProtocolException
+            , IOException, UnknownHostException {
+        return sendHttpRequest(url, method, properties, true);
     }
 
     public static class NetResponse {

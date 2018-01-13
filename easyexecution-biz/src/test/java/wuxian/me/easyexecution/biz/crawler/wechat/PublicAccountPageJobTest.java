@@ -1,10 +1,7 @@
 package wuxian.me.easyexecution.biz.crawler.wechat;
 
 import org.junit.Test;
-import wuxian.me.easyexecution.biz.crawler.ZhihuCrawlerJob;
 import wuxian.me.easyexecution.core.executor.JobRunnerManager;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by wuxian on 7/1/2018.

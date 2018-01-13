@@ -1,4 +1,4 @@
-package wuxian.me.easyexecution.biz.crawler;
+package wuxian.me.easyexecution.biz.crawler.zhihu;
 
 import org.apache.commons.io.IOUtils;
 import wuxian.me.easyexecution.biz.crawler.annotation.Host;

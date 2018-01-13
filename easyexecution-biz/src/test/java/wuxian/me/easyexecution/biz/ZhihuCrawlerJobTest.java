@@ -1,7 +1,7 @@
 package wuxian.me.easyexecution.biz;
 
 import org.junit.Test;
-import wuxian.me.easyexecution.biz.crawler.ZhihuCrawlerJob;
+import wuxian.me.easyexecution.biz.crawler.zhihu.ZhihuCrawlerJob;
 import wuxian.me.easyexecution.core.executor.JobRunnerManager;
 
 /**

@@ -10,6 +10,7 @@ import org.htmlparser.tags.Bullet;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import wuxian.me.easyexecution.biz.crawler.BaseCrawerJob;
+import wuxian.me.easyexecution.biz.crawler.annotation.Host;
 import wuxian.me.easyexecution.biz.crawler.annotation.URLPattern;
 import wuxian.me.easyexecution.biz.crawler.util.*;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
@@ -28,6 +29,7 @@ import static wuxian.me.easyexecution.biz.crawler.util.ParsingUtil.firstChildIfN
 /**
  * Created by wuxian on 7/1/2018.
  */
+@Host(host = "weixin.sogou.com")
 @URLPattern
 public class WechatJob extends BaseCrawerJob {
 
