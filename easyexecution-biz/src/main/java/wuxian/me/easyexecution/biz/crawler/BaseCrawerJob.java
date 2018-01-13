@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
  */
 public abstract class BaseCrawerJob extends AbstractJob {
 
-    protected String resolveEncoding(byte[] bytes, HttpURLConnection connection) {
+    public static String resolveEncoding(byte[] bytes, HttpURLConnection connection) {
         String encoding = BytesCharsetDetector.getDetectedCharset(bytes, null);
         if (encoding == null) {
             String contentType = connection.getContentType();

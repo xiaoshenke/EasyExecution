@@ -14,11 +14,14 @@ import wuxian.me.easyexecution.biz.crawler.annotation.URLPattern;
 import wuxian.me.easyexecution.biz.crawler.util.*;
 import wuxian.me.easyexecution.core.executor.AbstractJob;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static wuxian.me.easyexecution.biz.crawler.util.ParsingUtil.firstChildIfNullThrow;
 
@@ -55,59 +58,45 @@ public class WechatJob extends BaseCrawerJob {
     }
 
     private void getWxidRun() throws Exception {
-        HttpURLConnection conn = null;
-
-        String responseText = null;
-        String encoding = null;
-        byte[] responseBytes = null;
 
         String url = "http://weixin.sogou.com/weixin?type=2&ie=utf8&s_from=input&_sug_=n&_sug_type_=&w=01019900&sut=4303&sst0=1515321528543&lkt=1%2C1515321528441%2C1515321528441&query=";
-
         url = url + wechatName;
+        Map<String, String> pro = new HashMap<>();
+        pro.put("Host", "weixin.sogou.com");
+        pro.put("Connection", "keep-alive");
+        pro.put("User-Agent", UserAgentManager.getAgent());
+
+        NetworkUtil.NetResponse res = null;
+        boolean success = true;
+
         try {
-            conn = (HttpURLConnection) (new URL(url)).openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Host", "weixin.sogou.com");
-            conn.setRequestProperty("Connection", "keep-alive");
-            conn.setRequestProperty("User-Agent", UserAgentManager.getAgent());
-            int status = conn.getResponseCode();
-            System.out.println("status code: " + status);
-
-            responseBytes = IOUtils.toByteArray(conn.getInputStream());
-            if (status != 200 || responseBytes == null) {
-                //Todo
-                System.out.println("craw page:" + url + " fail,http code:" + status);
-                return;
-            }
-            encoding = resolveEncoding(responseBytes, conn);
-            if (encoding == null || encoding.isEmpty()) {
-                //Todo
-                System.out.println("Cannot Detected Charset of : " + url);
-                return;
-            }
-
-
+            res = NetworkUtil.sendHttpRequest(url, "GET", pro);
+        } catch (IOException e) {
+            success = false;
+            e.printStackTrace();
         } catch (Exception e) {
-
-            System.out.println("exception: " + e.getMessage());
-
-        } finally {
-            if (conn != null) {
-                conn.disconnect();
-            }
+            success = false;
+            e.printStackTrace();
         }
 
-        try {
-            responseText = new String(responseBytes, encoding);
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("crawler page:" + url + " UnsupportedEncodingException:" + e.getMessage());
+        if (!success) {
+            //TODO:
             return;
         }
 
-        parseRealData(responseText);
+        if (res.retCode != 200) {
+            //TODO:
+            return;
+        }
+
+        try {
+            parseRealData(res.body);
+        } catch (ParserException e) {
+            ;
+        }
     }
 
-    private void getNormalRun() throws Exception {
+    private void getNormalRun() {
 
         HttpUrl.Builder builder = HttpUrl.parse("http://weixin.sogou.com/weixin?type=2&ie=utf&tsn=0&ft=&et=&interation=")
                 .newBuilder();
@@ -116,53 +105,41 @@ public class WechatJob extends BaseCrawerJob {
         builder.addQueryParameter("query", wechatName);
         builder.addQueryParameter("wxid", wxid);
 
-        String responseText = null;
-        String encoding = null;
-        byte[] responseBytes = null;
-        HttpURLConnection conn = null;
+        Map<String, String> pro = new HashMap<>();
+        pro.put("Host", "weixin.sogou.com");
+        pro.put("Connection", "keep-alive");
+        pro.put("User-Agent", UserAgentManager.getAgent());
+        pro.put("Referer", builder.toString()); //sogou will carefully check Referer!
 
-        String url = builder.toString();
+        NetworkUtil.NetResponse res = null;
+        boolean success = true;
+
         try {
-            conn = (HttpURLConnection) (new URL(url)).openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Host", "weixin.sogou.com");
-            conn.setRequestProperty("Connection", "keep-alive");
-            conn.setRequestProperty("User-Agent", UserAgentManager.getAgent());
-            conn.setRequestProperty("Referer", url); //sogou will carefully check Referer!
-
-            int status = conn.getResponseCode();
-            System.out.println("status code: " + status);
-
-            responseBytes = IOUtils.toByteArray(conn.getInputStream());
-            if (status != 200 || responseBytes == null) {
-                System.out.println("craw page:" + url + " fail,http code:" + status);
-                return;
-            }
-            encoding = resolveEncoding(responseBytes, conn);
-            if (encoding == null || encoding.isEmpty()) {
-                System.out.println("Cannot Detected Charset of : " + url);
-                return;
-            }
-
-
+            res = NetworkUtil.sendHttpRequest(builder.toString(), "GET", pro);
+        } catch (IOException e) {
+            success = false;
+            e.printStackTrace();
         } catch (Exception e) {
-
-            System.out.println("exception: " + e.getMessage());
-
-        } finally {
-            if (conn != null) {
-                conn.disconnect();
-            }
+            success = false;
+            e.printStackTrace();
         }
 
-        try {
-            responseText = new String(responseBytes, encoding);
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("crawler page:" + url + " UnsupportedEncodingException:" + e.getMessage());
+        if (!success) {
+            //TODO:
             return;
         }
-        System.out.println(responseText);
-        parseRealData(responseText);
+
+        if (res.retCode != 200) {
+            //TODO:
+            return;
+        }
+
+        try {
+            parseRealData(res.body);
+        } catch (ParserException e) {
+            ;
+        }
+
     }
 
     @Override

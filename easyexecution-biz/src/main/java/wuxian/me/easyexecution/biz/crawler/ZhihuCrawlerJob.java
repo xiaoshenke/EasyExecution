@@ -16,10 +16,10 @@ import java.net.URL;
  * 2.1 could be anti-crawlered
  * 2.2 if success ,save to  ??
  */
+@Host(host = "www.zhihu.com")
 @URLPattern(regex = "https://www.zhihu.com/question/[0-9]+/answer/[0-9]+")
 public class ZhihuCrawlerJob extends AbstractJob {
 
-    @Host
     private final String host = "www.zhihu.com";
 
     private boolean isCanceled = false;

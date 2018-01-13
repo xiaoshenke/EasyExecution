@@ -8,7 +8,6 @@ public class BytesCharsetDetector {
         return getDetectedCharset(bytes, "utf-8");
     }
 
-
     public static String getDetectedCharset(byte[] bytes, String defaultEncoding) {
 
         UniversalDetector detector = new UniversalDetector(null);
@@ -19,9 +18,9 @@ public class BytesCharsetDetector {
 
         String encoding = detector.getDetectedCharset();
         if (encoding != null) {
-            System.out.println("Detected encoding = " + encoding);
+            //System.out.println("Detected encoding = " + encoding);
         } else {
-            System.out.println("No encoding detected.");
+            //System.out.println("No encoding detected.");
             encoding = defaultEncoding;// "utf-8";
         }
 
