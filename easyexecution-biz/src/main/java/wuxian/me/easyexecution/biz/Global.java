@@ -2,6 +2,7 @@ package wuxian.me.easyexecution.biz;
 
 import wuxian.me.easyexecution.biz.crawler.BaseCrawerJob;
 import wuxian.me.easyexecution.biz.crawler.sougou.WechatJob;
+import wuxian.me.easyexecution.biz.crawler.util.CrawlerWatcher;
 import wuxian.me.easyexecution.biz.crawler.util.FileUtil;
 import wuxian.me.easyexecution.biz.crawler.util.ProxyManager;
 
@@ -16,6 +17,8 @@ public class Global {
         ProxyManager.setProxyLimit(BaseCrawerJob.getHost(WechatJob.class), 10);
 
         ProxyManager.init();
+
+        CrawlerWatcher.initThriftClient("localhost", 9090);
     }
 
     //

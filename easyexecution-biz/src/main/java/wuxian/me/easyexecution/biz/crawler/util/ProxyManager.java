@@ -3,10 +3,12 @@ package wuxian.me.easyexecution.biz.crawler.util;
 import java.net.Proxy;
 import java.util.*;
 
+
 /**
  * Created by wuxian on 13/1/2018.
  * 提供代理管理
- * host和代理成 1对多 关系
+ * host和代理成 1对多 关系 --> 不对 应该是 多对多 的关系..同样1个代理也可以给不同的host用 节约代理资源
+ * 而禁用的时候 仅仅失效某个host对应的proxy
  * 代理和agent,cookie等成 1对1 关系
  */
 public class ProxyManager {
@@ -81,6 +83,30 @@ public class ProxyManager {
             return;
         }
         config.put(host, limit);
+    }
+
+    public static class HostProxy {
+        public String host;
+        public Proxy proxy;
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof HostProxy)) return false;
+
+            HostProxy hostProxy = (HostProxy) o;
+
+            if (host != null ? !host.equals(hostProxy.host) : hostProxy.host != null) return false;
+            return proxy != null ? proxy.equals(hostProxy.proxy) : hostProxy.proxy == null;
+
+        }
+
+        @Override
+        public int hashCode() {
+            int result = host != null ? host.hashCode() : 0;
+            result = 31 * result + (proxy != null ? proxy.hashCode() : 0);
+            return result;
+        }
     }
 
 }

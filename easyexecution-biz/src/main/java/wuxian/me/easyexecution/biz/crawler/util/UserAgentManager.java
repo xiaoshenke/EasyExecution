@@ -1,8 +1,9 @@
 package wuxian.me.easyexecution.biz.crawler.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.net.Proxy;
+import java.util.*;
+
+import wuxian.me.easyexecution.biz.crawler.util.ProxyManager.HostProxy;
 
 /**
  * Created by wuxian on 11/12/2017.
@@ -14,6 +15,9 @@ public class UserAgentManager {
     private static List<String> spiderAgentList = new ArrayList<String>();
 
     private static List<String> mobileAgentList = new ArrayList<String>();
+
+    private static Map<HostProxy, String> agentMap = new HashMap<>();
+    private static Map<HostProxy, List<String>> removedAgent = new HashMap<>();
 
 
     static {
@@ -87,5 +91,56 @@ public class UserAgentManager {
             return mobileAgentList.get(currentIndex - browserAgentList.size());
         }
 
+    }
+
+    public static String getAgentBy(String host, Proxy prxoy) {
+
+        if (host == null || host.length() == 0 || prxoy == null) {
+            return getAgent();
+        }
+
+        HostProxy hostProxy = new HostProxy();
+        hostProxy.host = host;
+        hostProxy.proxy = prxoy;
+
+        if (agentMap.containsKey(hostProxy)) {
+            return agentMap.get(hostProxy);
+        }
+        String agent = getAgent();
+        if (removedAgent.containsKey(host)) {
+            List<String> list = removedAgent.get(hostProxy); //可能导致资源枯竭
+            while (agent != null && list.contains(agent)) {
+                agent = getAgent();
+            }
+        }
+
+        if (agent != null) {
+            agentMap.put(hostProxy, agent);
+        }
+        return agent;
+    }
+
+    public static boolean removeProxy(String host, Proxy proxy) {
+        if (host == null || host.length() == 0 || proxy == null) {
+            return true;
+        }
+        HostProxy hostProxy = new HostProxy();
+        hostProxy.host = host;
+        hostProxy.proxy = proxy;
+        if (agentMap.containsKey(hostProxy)) {
+            String ag = agentMap.get(hostProxy);
+            if (!removedAgent.containsKey(host)) {
+                removedAgent.put(hostProxy, new ArrayList<>());
+            }
+            List<String> list = removedAgent.get(host);
+            if (!list.contains(ag)) {
+                list.add(ag);
+            }
+            removedAgent.put(hostProxy, list);
+
+            agentMap.remove(hostProxy);
+            return true;
+        }
+        return false;
     }
 }
