@@ -36,11 +36,22 @@ public class JobRunnerManager implements ThreadPoolExecutingListener, EventHandl
         return executorService;
     }
 
-    private ConcurrencyDispatcher concurrencyDispatcher = new ConcurrencyDispatcher(this);
+    protected ConcurrencyDispatcher concurrencyDispatcher = new ConcurrencyDispatcher(this);
     private FixedFrequencyDispatcher fixedFrequencyDispatcher = new FixedFrequencyDispatcher(this, DEFAULT_FIXED_RATE);
 
-    public JobRunnerManager() {
+    protected boolean concurrencyMode = true;
+
+    public JobRunnerManager(boolean concurrencyMode) {
+        this.concurrencyMode = concurrencyMode;
         createExecutorService(DEFAULT_FLOW_NUM_JOB_TREADS);
+    }
+
+    public JobRunnerManager() {
+        this(true);
+    }
+
+    public boolean isConcurrencyMode() {
+        return concurrencyMode;
     }
 
     public void submitJob(AbstractJob job) throws Exception {
@@ -48,17 +59,21 @@ public class JobRunnerManager implements ThreadPoolExecutingListener, EventHandl
         JobRunner jobRunner = createJobRunner(job);
         jobRunner.setExecId(JobIdFactory.getInstance().getGenerator().generateId());
 
-        Properties properties = job.getProperties();
+        dispatchJobImpl(jobRunner);
+
+        this.submitedJobs.put(jobRunner.getExecId(), jobRunner);
+    }
+
+    protected void dispatchJobImpl(JobRunner runner) {
+        Properties properties = runner.getJob().getProperties();
         if (properties == null) {
             properties = new Properties();
         }
-
         if (!properties.containsKey(AbstractJob.JOB_EXECUTE_TYPE)) {  //Todo: 默认使用ConcurrencyDispatcher取得最快效果
-            concurrencyDispatcher.submit(jobRunner);
+            concurrencyDispatcher.submit(runner);
         } else {
-            fixedFrequencyDispatcher.submit(jobRunner);
+            fixedFrequencyDispatcher.submit(runner);
         }
-        this.submitedJobs.put(jobRunner.getExecId(), jobRunner);
     }
 
     public void cancelByExecId(String execId) {

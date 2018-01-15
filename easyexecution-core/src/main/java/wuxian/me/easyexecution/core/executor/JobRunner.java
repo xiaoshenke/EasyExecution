@@ -11,6 +11,10 @@ public class JobRunner extends EventCreators implements Runnable {
         this.job = job;
     }
 
+    public AbstractJob getJob() {
+        return this.job;
+    }
+
     public void setExecId(long execId) {
         if (this.job != null) {
             this.job.setExecId(String.valueOf(execId));

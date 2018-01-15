@@ -1,8 +1,8 @@
 package wuxian.me.easyexecution.biz.statistic;
 
 import org.junit.Test;
-import wuxian.me.ner.statistic.MidStatistics;
-import wuxian.me.ner.statistic.Util;
+import wuxian.me.ner.service.statistic.MidStatistics;
+import wuxian.me.ner.service.statistic.Util;
 
 import java.util.Comparator;
 import java.util.HashMap;

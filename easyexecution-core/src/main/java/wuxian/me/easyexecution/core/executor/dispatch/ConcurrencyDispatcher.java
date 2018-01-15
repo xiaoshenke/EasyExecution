@@ -3,6 +3,7 @@ package wuxian.me.easyexecution.core.executor.dispatch;
 import wuxian.me.easyexecution.core.event.Event;
 import wuxian.me.easyexecution.core.event.EventCreators;
 import wuxian.me.easyexecution.core.event.EventType;
+import wuxian.me.easyexecution.core.executor.JobRunner;
 import wuxian.me.easyexecution.core.executor.JobRunnerManager;
 import wuxian.me.easyexecution.core.util.ThreadPoolExecutingListener;
 import wuxian.me.easyexecution.core.util.TrackingThreadPool;

@@ -31,6 +31,10 @@ public class FixedFrequencyDispatcher extends EventCreators implements IDispatch
         dispatchThread.start();
     }
 
+    public void setRate(long rate) {
+        this.rate = rate;
+    }
+
     @Override
     public void submit(Runnable runnable) {
         synchronized (lock) {
