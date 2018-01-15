@@ -1,6 +1,5 @@
 package wuxian.me.easyexecution.biz.crawler.util;
 
-import com.sun.istack.internal.NotNull;
 import org.htmlparser.Node;
 import org.htmlparser.util.NodeList;
 
@@ -12,14 +11,14 @@ public class NodeLogUtil {
     private NodeLogUtil() {
     }
 
-    public static final void printNodeOnly(@NotNull Node node) {
+    public static final void printNodeOnly(Node node) {
         System.out.println("type: " + node.getClass().getSimpleName());
         System.out.println("getText: " + node.getText());
         System.out.println("toString: " + node.toString());
         System.out.println("toPlainTextString: " + node.toPlainTextString());
     }
 
-    public static final void printChildrenOfNode(@NotNull Node node) {
+    public static final void printChildrenOfNode(Node node) {
         NodeList children = node.getChildren();
         if (children == null || children.size() == 0) {
             return;
@@ -31,7 +30,7 @@ public class NodeLogUtil {
     }
 
     //For Log
-    public static final void printPreviousBrother(@NotNull Node node) {
+    public static final void printPreviousBrother(Node node) {
         Node real = node.getPreviousSibling();
         while (real != null) {
             System.out.println("type: " + real.getClass().getSimpleName());
@@ -44,7 +43,7 @@ public class NodeLogUtil {
     }
 
     //For Log
-    public static final void printNextBrother(@NotNull Node node) {
+    public static final void printNextBrother(Node node) {
         Node real = node.getNextSibling();
         while (real != null) {
             System.out.println("type: " + real.getClass().getSimpleName());

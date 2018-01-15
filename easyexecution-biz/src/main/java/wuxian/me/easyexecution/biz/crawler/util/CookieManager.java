@@ -1,6 +1,5 @@
 package wuxian.me.easyexecution.biz.crawler.util;
 
-import com.sun.istack.internal.Nullable;
 
 import java.net.Proxy;
 import java.util.ArrayList;
@@ -69,8 +68,7 @@ public class CookieManager {
         }
         return false;
     }
-
-    @Nullable
+    
     public static String get(String key, String cookiePath) throws RuntimeException {
         if (key == null || key.length() == 0) {
             throw new RuntimeException("key is empty!");

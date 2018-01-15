@@ -3,8 +3,6 @@ package wuxian.me.easyexecution.biz.crawler.util;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
-import com.sun.istack.internal.Nullable;
-//import wuxian.me.spidercommon.log.LogManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +51,6 @@ public class FileUtil {
         return true;
     }
 
-    @Nullable
     public static String readFromFile(String path) {
         checkNotNull(path);
         File file = new File(path);
@@ -70,7 +67,6 @@ public class FileUtil {
         }
     }
 
-    @Nullable
     public static File getCurrentRunningFile() {
         try {
             //取当前jar做检查

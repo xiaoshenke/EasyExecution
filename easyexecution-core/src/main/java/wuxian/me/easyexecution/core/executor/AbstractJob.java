@@ -1,7 +1,5 @@
 package wuxian.me.easyexecution.core.executor;
 
-import com.sun.istack.internal.Nullable;
-
 import java.util.Properties;
 
 public abstract class AbstractJob implements Job {
@@ -83,7 +81,6 @@ public abstract class AbstractJob implements Job {
     }
 
     @Override
-    @Nullable
     public Object getResult() {
         return null;
     }

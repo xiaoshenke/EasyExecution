@@ -1,7 +1,5 @@
 package wuxian.me.easyexecution.biz.crawler.util;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
 import org.htmlparser.Node;
 import org.htmlparser.NodeFilter;
 import org.htmlparser.util.NodeList;
@@ -32,8 +30,7 @@ public class ParsingUtil {
         }
     }
 
-    @NotNull
-    public static NodeList childrenOfType(@Nullable NodeList list, Class clazz) {
+    public static NodeList childrenOfType(NodeList list, Class clazz) {
         NodeList nodeList = new NodeList();
         if (list != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
@@ -47,8 +44,7 @@ public class ParsingUtil {
         return nodeList;
     }
 
-    @NotNull
-    public static NodeList childrenOfTypeAndContent(@Nullable NodeList list, Class clazz, String content) {
+    public static NodeList childrenOfTypeAndContent(NodeList list, Class clazz, String content) {
         NodeList nodeList = new NodeList();
         if (list != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
@@ -61,11 +57,11 @@ public class ParsingUtil {
         return nodeList;
     }
 
-    public static Node firstChildOfType(@Nullable NodeList list, Class clazz) {
+    public static Node firstChildOfType(NodeList list, Class clazz) {
         return firstChildOfType(list, clazz, false);
     }
 
-    public static Node firstChildOfType(@Nullable NodeList list, Class clazz, boolean recurse) {
+    public static Node firstChildOfType(NodeList list, Class clazz, boolean recurse) {
         if (list != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
                 Node node = list.elementAt(i);
@@ -83,7 +79,7 @@ public class ParsingUtil {
         return null;
     }
 
-    public static Node firstChildOfTypeAndContent(@Nullable NodeList list, Class clazz, String content, boolean recurse) {
+    public static Node firstChildOfTypeAndContent(NodeList list, Class clazz, String content, boolean recurse) {
         if (list != null && list.size() != 0) {
             for (int i = 0; i < list.size(); i++) {
                 Node node = list.elementAt(i);
@@ -102,20 +98,20 @@ public class ParsingUtil {
         return null;
     }
 
-    public static Node firstChildOfTypeAndContent(@Nullable NodeList list, Class clazz, String content) {
+    public static Node firstChildOfTypeAndContent(NodeList list, Class clazz, String content) {
         return firstChildOfTypeAndContent(list, clazz, content, false);
     }
 
-    @Nullable
-    public static Node firstChild(@Nullable NodeList list) {
+
+    public static Node firstChild(NodeList list) {
         if (list != null && list.size() != 0) {
             return list.elementAt(0);
         }
         return null;
     }
 
-    @Nullable
-    public static Node nextBrotherWhoMatch(@Nullable Node current, NodeFilter filter) throws ParserException {
+
+    public static Node nextBrotherWhoMatch(Node current, NodeFilter filter) throws ParserException {
 
         if (current == null) {
             return null;
@@ -130,8 +126,8 @@ public class ParsingUtil {
         return null;
     }
 
-    @Nullable
-    public static Node firstChildIfNullThrow(@Nullable NodeList list) throws ParserException {
+
+    public static Node firstChildIfNullThrow(NodeList list) throws ParserException {
         Node node = ParsingUtil.firstChild(list);
         if (node == null) {
             throw new ParserException();
@@ -151,7 +147,7 @@ public class ParsingUtil {
         return b;
     }
 
-    @Nullable
+
     public static String matchedString(Pattern pattern, String origin) {
         if (origin == null || origin.length() == 0 || pattern == null) {
             return null;
@@ -165,7 +161,6 @@ public class ParsingUtil {
     }
 
 
-    @Nullable
     public static List<String> matchedStrings(Pattern pattern, String origin) {
         if (origin == null || origin.length() == 0 || pattern == null) {
             return null;
